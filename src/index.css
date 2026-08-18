@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FF1744;
+  --color-primary-dark: #D50032;
+  --color-accent: #FF5C7A;
+  --color-surface: #FFF5F7;
+  --color-dark: #111111;
+  --color-secondary-text: #6B7280;
+  --color-footer-bg: #111827;
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-stat: 'Space Grotesk', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #111111;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .font-stat {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+/* Hero Radial Gradient & Soft Dot Grid */
+.bg-hero-radial {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 23, 68, 0.07) 0%, rgba(255, 245, 247, 0.4) 45%, rgba(255, 255, 255, 1) 100%),
+    radial-gradient(circle at 90% 80%, rgba(255, 92, 122, 0.05) 0%, transparent 40%);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(17, 17, 17, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-cta-red {
+  background: linear-gradient(135deg, #FF1744 0%, #D50032 100%);
+}
+
+.bg-cta-red:hover {
+  background: linear-gradient(135deg, #D50032 0%, #B00020 100%);
+}
+
+.shadow-saas {
+  box-shadow: 0 20px 50px -10px rgba(255, 23, 68, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-card-glow {
+  box-shadow: 0 0 50px rgba(255, 23, 68, 0.12), 0 20px 40px -15px rgba(17, 24, 39, 0.08);
+}
+
+/* Floating Animations */
+@keyframes floatSlow {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes floatReverse {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(8px) rotate(-1deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
+}
+
+/* Infinite Marquee Ticker Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 55s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
