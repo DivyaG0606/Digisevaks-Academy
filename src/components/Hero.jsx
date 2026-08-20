@@ -60,11 +60,7 @@ export default function Hero({ onOpenDemo }) {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#FF5C7A]/30 text-[#FF1744] text-xs font-heading font-bold shadow-sm backdrop-blur-sm"
             >
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF1744] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF1744]"></span>
-              </span>
-              <BrainCircuit className="w-3.5 h-3.5 text-[#FF1744]" />
+
               <span>AI-Powered • Agency-Style Practical Training in Pune</span>
             </motion.div>
 
@@ -258,7 +254,7 @@ export default function Hero({ onOpenDemo }) {
               </button>
 
               <p className="text-[11px] text-[#6B7280] text-center mt-3 font-medium">
-                🔒 Limited seats available per batch for hands-on mentoring.
+                Limited seats available per batch for hands-on mentoring.
               </p>
 
             </div>

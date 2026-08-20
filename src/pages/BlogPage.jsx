@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { 
-  Search, 
-  Filter, 
-  BookOpen, 
-  Sparkles, 
-  Phone, 
-  ArrowRight, 
-  Calendar, 
-  Clock, 
-  User, 
-  X, 
+import {
+  Search,
+  Filter,
+  BookOpen,
+  Sparkles,
+  Phone,
+  ArrowRight,
+  Calendar,
+  Clock,
+  User,
+  X,
   CheckCircle2,
   ChevronDown
 } from 'lucide-react';
@@ -662,7 +662,7 @@ export default function BlogPage({ onOpenDemo }) {
   // Filter Blogs based on active tab and search query
   const filteredBlogs = allBlogs.filter((blog) => {
     const matchesCategory = activeCategory === 'All' || blog.category === activeCategory;
-    const matchesSearch = 
+    const matchesSearch =
       blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       blog.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
       blog.keywords.some(k => k.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -688,7 +688,7 @@ export default function BlogPage({ onOpenDemo }) {
 
   return (
     <div className="py-6 sm:py-12 bg-[#FFF5F7]/50 font-sans animate-fade-in min-h-screen">
-      
+
       {/* Inject Google SEO Schema JSON-LD */}
       <script
         type="application/ld+json"
@@ -722,7 +722,7 @@ export default function BlogPage({ onOpenDemo }) {
           <div className="pt-2 sm:pt-4 max-w-xl mx-auto">
             <div className="relative">
               <Search className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-              <input 
+              <input
                 type="text"
                 placeholder="Search topics: Google Ads, SEO, AI tools..."
                 value={searchQuery}
@@ -730,7 +730,7 @@ export default function BlogPage({ onOpenDemo }) {
                 className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-white border border-gray-200 text-[#111111] text-xs sm:text-sm focus:outline-none focus:border-[#FF1744] shadow-md transition-all placeholder-gray-400"
               />
               {searchQuery && (
-                <button 
+                <button
                   onClick={() => { setSearchQuery(''); setVisibleCount(6); }}
                   className="absolute right-3.5 sm:right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
@@ -747,11 +747,10 @@ export default function BlogPage({ onOpenDemo }) {
             <button
               key={idx}
               onClick={() => handleCategorySelect(cat)}
-              className={`px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-heading font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${
-                activeCategory === cat
-                  ? 'bg-[#FF1744] text-white shadow-md scale-105'
-                  : 'bg-white text-gray-700 hover:bg-[#FFF5F7] hover:text-[#FF1744] border border-gray-200'
-              }`}
+              className={`px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-heading font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${activeCategory === cat
+                ? 'bg-[#FF1744] text-white shadow-md scale-105'
+                : 'bg-white text-gray-700 hover:bg-[#FFF5F7] hover:text-[#FF1744] border border-gray-200'
+                }`}
             >
               {cat}
             </button>
@@ -783,7 +782,7 @@ export default function BlogPage({ onOpenDemo }) {
             <Filter className="w-10 h-10 text-gray-300 mx-auto" />
             <h3 className="font-heading text-base font-bold text-[#111111]">No Articles Found</h3>
             <p className="text-xs text-gray-500">Try searching for a different keyword or select another category tab above.</p>
-            <button 
+            <button
               onClick={() => { setActiveCategory('All'); setSearchQuery(''); setVisibleCount(6); }}
               className="px-4 py-2 bg-[#FF1744] text-white font-heading font-bold text-xs rounded-xl shadow-xs hover:opacity-90 cursor-pointer"
             >
@@ -794,15 +793,15 @@ export default function BlogPage({ onOpenDemo }) {
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
               {visibleBlogs.map((blog) => (
-                <div 
+                <div
                   key={blog.id}
                   className="bg-white rounded-2xl overflow-hidden border border-gray-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group h-full animate-fade-in"
                 >
                   <div>
                     {/* Featured Image with Zoom Animation */}
                     <div className="relative h-40 sm:h-52 overflow-hidden bg-gray-100">
-                      <img 
-                        src={blog.image} 
+                      <img
+                        src={blog.image}
                         alt={blog.title}
                         loading="lazy"
                         onError={(e) => {
@@ -855,7 +854,7 @@ export default function BlogPage({ onOpenDemo }) {
 
                   {/* Card Footer Read Action */}
                   <div className="p-3.5 pt-0 sm:p-6 sm:pt-0">
-                    <button 
+                    <button
                       onClick={() => setSelectedBlog(blog)}
                       className="w-full py-2.5 px-3 rounded-xl bg-gray-50 hover:bg-[#FFF5F7] text-[#111111] hover:text-[#FF1744] font-heading font-bold text-[11px] sm:text-xs border border-gray-200 hover:border-[#FF5C7A]/40 transition-all flex items-center justify-between group/btn cursor-pointer"
                     >
@@ -899,7 +898,7 @@ export default function BlogPage({ onOpenDemo }) {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-1">
-              <button 
+              <button
                 onClick={() => onOpenDemo('blog_footer')}
                 className="w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-[#FF1744] hover:bg-[#D50032] text-white font-heading font-extrabold text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2 cursor-pointer active:scale-95"
               >
@@ -907,7 +906,7 @@ export default function BlogPage({ onOpenDemo }) {
                 <span>Book Free Demo Class</span>
               </button>
 
-              <a 
+              <a
                 href="tel:+918459439131"
                 className="w-full sm:w-auto px-6 py-3.5 sm:px-7 sm:py-4 bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center space-x-2 border border-white/20"
               >
@@ -924,9 +923,9 @@ export default function BlogPage({ onOpenDemo }) {
       {selectedBlog && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
           <div className="bg-white rounded-2xl sm:rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-4 sm:p-8 space-y-4 sm:space-y-6 relative shadow-2xl border border-gray-200">
-            
+
             {/* Close Button */}
-            <button 
+            <button
               onClick={() => setSelectedBlog(null)}
               className="absolute top-4 right-4 p-1.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
             >
@@ -961,9 +960,9 @@ export default function BlogPage({ onOpenDemo }) {
 
             {/* Featured Modal Image */}
             <div className="rounded-xl sm:rounded-2xl overflow-hidden h-44 sm:h-64 bg-gray-100">
-              <img 
-                src={selectedBlog.image} 
-                alt={selectedBlog.title} 
+              <img
+                src={selectedBlog.image}
+                alt={selectedBlog.title}
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80";
@@ -1000,15 +999,14 @@ export default function BlogPage({ onOpenDemo }) {
 
             {/* Modal Bottom CTAs */}
             <div className="pt-3 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-              <button 
+              <button
                 onClick={() => { setSelectedBlog(null); onOpenDemo('blog_modal'); }}
                 className="w-full sm:w-auto py-3 px-5 bg-[#FF1744] hover:bg-[#D50032] text-white font-heading font-extrabold text-xs rounded-xl shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer active:scale-95"
               >
-                <Sparkles className="w-3.5 h-3.5" />
                 <span>Book Free Demo Class</span>
               </button>
 
-              <button 
+              <button
                 onClick={() => setSelectedBlog(null)}
                 className="text-[11px] font-bold text-gray-500 hover:text-gray-800"
               >

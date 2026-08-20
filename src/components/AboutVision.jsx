@@ -6,16 +6,16 @@ export default function AboutVision() {
   return (
     <section id="about" className="py-16 sm:py-20 bg-white font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* About Overview */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-14 sm:mb-20">
           <FadeUp className="lg:col-span-6 space-y-4">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-widest">
-              <Building2 className="w-4 h-4" />
+
               <span>Agency-Style Training Institute</span>
             </div>
 
-            <TextMaskReveal 
+            <TextMaskReveal
               as="h2"
               className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight"
             >
@@ -53,7 +53,7 @@ export default function AboutVision() {
             <ScaleReveal delay={0.15}>
               <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#FF1744] via-[#E60033] to-[#B70025] p-5 sm:p-8 text-white shadow-xl overflow-hidden border border-[#FF5C7A]/40">
                 <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-                
+
                 <div className="relative z-10 space-y-4 sm:space-y-6">
                   {/* Card Header */}
                   <div className="flex items-center space-x-3 sm:space-x-4 pb-4 sm:pb-6 border-b border-white/20">

@@ -1,11 +1,41 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { allCitiesFooterList } from '../data/locationsData';
 
 export default function Footer({ onOpenDemo }) {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  const CityInterlinkingBlock = () => (
+    <div className="space-y-3">
+      <div className="text-[11px] font-bold text-gray-300 uppercase tracking-wider">
+        ATTEND OUR ONLINE LIVE INTERACTIVE PRACTICAL DIGITAL MARKETING COURSE FROM YOUR CITY LOCATION :
+      </div>
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs text-gray-400">
+        {allCitiesFooterList.map((cityItem, idx) => (
+          <React.Fragment key={idx}>
+            <Link to={cityItem.route} className="hover:text-[#FF5C7A] transition-colors">
+              {cityItem.name}
+            </Link>
+            {idx < allCitiesFooterList.length - 1 && <span className="text-gray-600">|</span>}
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <footer className="bg-[#111827] text-white border-t border-gray-800 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        
+        {/* Top City Interlinking Section (Shown on all pages EXCEPT Home page) */}
+        {!isHomePage && (
+          <div className="pb-8 mb-10 border-b border-gray-800">
+            <CityInterlinkingBlock />
+          </div>
+        )}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10">
 
           {/* Col 1: Brand & Socials */}
@@ -102,11 +132,10 @@ export default function Footer({ onOpenDemo }) {
           <div>
             <h4 className="font-heading text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-3">Our Specializations</h4>
             <ul className="space-y-2 text-xs text-gray-400 font-medium">
-              <li><Link to="/courses" className="hover:text-[#FF5C7A] transition-colors">• Classroom Marketing</Link></li>
-              <li><Link to="/courses" className="hover:text-[#FF5C7A] transition-colors">• Practical Digital Marketing</Link></li>
-              <li><Link to="/courses" className="hover:text-[#FF5C7A] transition-colors">• Performance Marketing</Link></li>
-              <li><Link to="/courses" className="hover:text-[#FF5C7A] transition-colors">• Corporate Training</Link></li>
-              <li><Link to="/courses" className="hover:text-[#FF5C7A] transition-colors">• Executive Program</Link></li>
+              <li><Link to="/courses" className="hover:text-[#FF5C7A] transition-colors">• Online Digital Marketing Course</Link></li>
+              <li><Link to="/courses" className="hover:text-[#FF5C7A] transition-colors">• Offline & Classroom Digital Marketing Course</Link></li>
+              <li><Link to="/digital-marketing-courses-in-pimpri-chinchwad" className="hover:text-[#FF5C7A] transition-colors">• Digital Marketing Course PCMC</Link></li>
+              <li><Link to="/courses" className="hover:text-[#FF5C7A] transition-colors">• Advanced Performance Marketing Course</Link></li>
             </ul>
           </div>
 
@@ -165,6 +194,11 @@ export default function Footer({ onOpenDemo }) {
               title="DIGISEVAKS Academy Google Maps Footer Location"
             />
           </div>
+        </div>
+
+        {/* City Location Links Grid (Shown on ALL pages) */}
+        <div className="mt-8 pt-6 border-t border-gray-800">
+          <CityInterlinkingBlock />
         </div>
 
         <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-3 text-center sm:text-left">

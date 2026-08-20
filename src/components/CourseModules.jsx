@@ -138,7 +138,7 @@ export default function CourseModules({ onOpenDemo }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-2.5">
           <div className="inline-flex items-center space-x-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white border border-red-200 text-[#FF1744] text-[10px] sm:text-xs font-heading font-bold uppercase tracking-widest shadow-xs">
-            <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FF1744]" />
+
             <span>Comprehensive 100% Practical Curriculum</span>
           </div>
 
@@ -168,14 +168,14 @@ export default function CourseModules({ onOpenDemo }) {
                   <button
                     onClick={() => setOpenModule(isOpen ? null : idx)}
                     className={`w-full p-3.5 sm:p-6 text-left flex items-center justify-between rounded-xl sm:rounded-2xl transition-all duration-300 ${isOpen
-                        ? 'bg-[#FF1744] text-white shadow-xl shadow-red-600/30'
-                        : 'bg-white border border-red-100/80 text-[#111111] shadow-xs hover:shadow-md hover:border-[#FF1744]/40'
+                      ? 'bg-[#FF1744] text-white shadow-xl shadow-red-600/30'
+                      : 'bg-white border border-red-100/80 text-[#111111] shadow-xs hover:shadow-md hover:border-[#FF1744]/40'
                       }`}
                   >
                     <div className="flex items-center space-x-3 sm:space-x-4 min-w-0 pr-2">
                       <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 font-heading font-bold text-xs sm:text-sm transition-all duration-300 ${isOpen
-                          ? 'bg-white text-[#FF1744] shadow-md'
-                          : 'bg-red-50 text-[#FF1744] border border-red-100'
+                        ? 'bg-white text-[#FF1744] shadow-md'
+                        : 'bg-red-50 text-[#FF1744] border border-red-100'
                         }`}>
                         <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>

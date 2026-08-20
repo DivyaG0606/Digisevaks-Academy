@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { Phone, Mail, Download, Menu, X, Sparkles, ChevronDown, BookOpen, Laptop, Target, Building2, UserCheck } from 'lucide-react';
+import { Phone, Mail, Download, Menu, X, Sparkles, ChevronDown, BookOpen, Laptop, Target, Building2, UserCheck, Globe, MapPin } from 'lucide-react';
 
 export default function Navbar({ onOpenDemo }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,12 +13,10 @@ export default function Navbar({ onOpenDemo }) {
   const inactiveClass = "text-[#111111] hover:text-[#FF1744] font-semibold transition-colors pb-1";
 
   const courseList = [
-    { name: 'Classroom Digital Marketing Course', icon: BookOpen, desc: '100% In-person agency training' },
-    { name: 'Practical Digital Marketing Course', icon: Laptop, desc: 'Agency-style practical mentorship' },
-    { name: 'Advanced Performance Marketing Course', icon: Target, desc: 'Meta Ads, Google Ads & GA4 mastery' },
-    { name: 'Corporate Digital Marketing Course', icon: Building2, desc: 'Upskilling for companies & teams' },
-    { name: 'Digital Marketing Executive Program', icon: UserCheck, desc: 'Job-ready career transformation' },
-    { name: 'Complete Course Syllabus', icon: BookOpen, desc: 'View official curriculum details', path: '/courses/digital-marketing/syllabus' },
+    { name: 'Online Digital Marketing Course', icon: Globe, desc: 'Live interactive remote agency training', path: '/courses' },
+    { name: 'Offline & Classroom Digital Marketing Course', icon: BookOpen, desc: '100% In-person practical agency training', path: '/courses' },
+    { name: 'Digital Marketing Course PCMC', icon: MapPin, desc: 'Pimpri Chinchwad campus training', path: '/digital-marketing-courses-in-pimpri-chinchwad' },
+    { name: 'Advanced Performance Marketing Course', icon: Target, desc: 'Meta Ads, Google Ads & GA4 mastery', path: '/courses' },
   ];
 
   return (
@@ -31,13 +29,13 @@ export default function Navbar({ onOpenDemo }) {
           {/* Admissions Open Badge & Tagline */}
           <div className="flex items-center space-x-3">
             <button
-              onClick={() => navigate('/contact')}
-              className="bg-[#FF1744] hover:bg-[#D50032] text-white font-bold px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider transition-all transform hover:scale-105 shadow-sm"
+              onClick={() => navigate('/admission-form')}
+              className="bg-[#FF1744] hover:bg-[#D50032] text-white font-bold px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider transition-all transform hover:scale-105 shadow-sm cursor-pointer"
             >
               Admissions Open
             </button>
             <span className="hidden lg:inline text-gray-300 text-[11px]">
-              🚀 AI-Powered Agency Style Digital Marketing Master Program
+              AI-Powered Agency Style Digital Marketing Master Program
             </span>
           </div>
 
@@ -184,12 +182,6 @@ export default function Navbar({ onOpenDemo }) {
             )}
           </div>
 
-          <Link 
-            to="/about#why-choose-us" 
-            className={location.pathname === '/about' && location.hash === '#why-choose-us' ? activeClass : inactiveClass}
-          >
-            Why Choose Us?
-          </Link>
           <NavLink to="/placements" className={({ isActive }) => isActive ? activeClass : inactiveClass}>Placements & Reviews</NavLink>
           <NavLink to="/blog" className={({ isActive }) => isActive ? activeClass : inactiveClass}>Blog</NavLink>
           <NavLink to="/contact" className={({ isActive }) => isActive ? activeClass : inactiveClass}>Contact Us</NavLink>
@@ -209,7 +201,6 @@ export default function Navbar({ onOpenDemo }) {
             onClick={() => onOpenDemo('demo')}
             className="px-4 py-2 text-xs font-semibold text-white bg-cta-red rounded-xl shadow-saas transition-all flex items-center space-x-1.5 active:scale-95"
           >
-            <Sparkles className="w-3.5 h-3.5" />
             <span>Book Free Demo</span>
           </button>
         </div>
@@ -235,14 +226,14 @@ export default function Navbar({ onOpenDemo }) {
           {/* Mobile Courses Collapsible Accordion */}
           <div className="border-b border-gray-100 py-1">
             <div className="flex items-center justify-between py-1.5 text-sm font-semibold text-[#111111]">
-              <Link 
-                to="/courses" 
+              <Link
+                to="/courses"
                 onClick={() => { setMobileMenuOpen(false); setMobileCoursesOpen(false); }}
                 className="hover:text-[#FF1744]"
               >
                 Courses & Specializations
               </Link>
-              <button 
+              <button
                 onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
                 className="p-1.5 rounded-lg text-gray-500 hover:text-[#FF1744] hover:bg-red-50 focus:outline-none"
                 aria-label="Toggle courses dropdown"
@@ -267,7 +258,6 @@ export default function Navbar({ onOpenDemo }) {
             )}
           </div>
 
-          <Link to="/about#why-choose-us" onClick={() => { setMobileMenuOpen(false); setMobileCoursesOpen(false); }} className="block py-2 text-sm font-semibold text-[#111111] border-b border-gray-100">Why Choose Us?</Link>
           <Link to="/placements" onClick={() => { setMobileMenuOpen(false); setMobileCoursesOpen(false); }} className="block py-2 text-sm font-semibold text-[#111111] border-b border-gray-100">Placements & Reviews</Link>
           <Link to="/contact" onClick={() => { setMobileMenuOpen(false); setMobileCoursesOpen(false); }} className="block py-2 text-sm font-semibold text-[#111111] border-b border-gray-100">Branches</Link>
           <Link to="/blog" onClick={() => { setMobileMenuOpen(false); setMobileCoursesOpen(false); }} className="block py-2 text-sm font-semibold text-[#111111] border-b border-gray-100">Blog / Knowledge</Link>

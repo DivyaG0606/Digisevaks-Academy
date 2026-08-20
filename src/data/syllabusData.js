@@ -1,4 +1,4 @@
-export const syllabusModules = [
+const rawSyllabusModules = [
   {
     id: 1,
     title: "Digital Marketing Overview",
@@ -42,31 +42,6 @@ export const syllabusModules = [
   },
   {
     id: 4,
-    title: "Graphic Designing",
-    category: "Social Media & Content Creation",
-    topics: [
-      "Introduction to Graphic Design",
-      "Color Theory & Typography",
-      "Canva Pro Subscription Benefits",
-      "Creating Social Media Posts",
-      "Designing Ad Creatives",
-      "Using AI for Graphic Design"
-    ]
-  },
-  {
-    id: 5,
-    title: "Video Editing",
-    category: "Social Media & Content Creation",
-    topics: [
-      "Basics of Video Editing",
-      "Tools for Video Editing",
-      "Creating Reels and Shorts",
-      "Adding Subtitles and Effects",
-      "Video Optimization for Social Media"
-    ]
-  },
-  {
-    id: 6,
     title: "Facebook Mastery",
     category: "Social Media & Content Creation",
     topics: [
@@ -77,7 +52,7 @@ export const syllabusModules = [
     ]
   },
   {
-    id: 7,
+    id: 5,
     title: "Instagram Mastery",
     category: "Social Media & Content Creation",
     topics: [
@@ -88,7 +63,7 @@ export const syllabusModules = [
     ]
   },
   {
-    id: 8,
+    id: 6,
     title: "Meta/Facebook & Instagram Advertising",
     category: "Paid Advertising",
     topics: [
@@ -101,7 +76,7 @@ export const syllabusModules = [
     ]
   },
   {
-    id: 9,
+    id: 7,
     title: "X / Twitter Mastery",
     category: "Social Media & Content Creation",
     topics: [
@@ -112,7 +87,7 @@ export const syllabusModules = [
     ]
   },
   {
-    id: 10,
+    id: 8,
     title: "LinkedIn Mastery",
     category: "Social Media & Content Creation",
     topics: [
@@ -543,6 +518,11 @@ export const syllabusModules = [
     ]
   }
 ];
+
+export const syllabusModules = rawSyllabusModules.map((mod, idx) => ({
+  ...mod,
+  id: idx + 1
+}));
 
 export const specializations = [
   {

@@ -90,13 +90,6 @@ export default function ToolsSection() {
       secondaryBgAccent: '#EFF6FF'
     },
     {
-      name: 'CapCut & AI Video Tools',
-      description: 'Reels & Video Ad Editing',
-      primaryIcon: SiCapcut,
-      brandColor: '#111111',
-      bgAccent: '#F3F4F6'
-    },
-    {
       name: 'Google Tag Manager',
       description: 'Tracking & Pixel Setup',
       primaryIcon: SiGoogletagmanager,

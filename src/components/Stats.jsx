@@ -7,7 +7,7 @@ export default function Stats() {
     { value: 10000, suffix: '+', label: 'Students Trained', icon: Users, desc: 'Across Pune & Maharashtra' },
     { value: 100, suffix: '%', label: 'Practical Training', icon: BookOpen, desc: 'Agency-Style Live Briefs' },
     { value: 50, suffix: '+', label: 'AI Tools Covered', icon: Award, desc: 'ChatGPT, Canva AI & Ads' },
-    { textValue: 'Structured', label: 'Placement Support', icon: Briefcase, desc: 'Resume Review & Mock Tests' },
+    { value: 100, suffix: '%', label: 'Placement Assistance', icon: Briefcase, desc: 'Digital Marketing Course Pune' },
   ];
 
   return (

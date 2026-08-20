@@ -8,7 +8,7 @@ export default function CertificatesSection({ onOpenDemo, onOpenSampleCert }) {
       id: 1,
       key: 'graphic',
       title: 'Graphic Design Certificate',
-      type: 'Official Hard Copy Certificate',
+      type: 'Soft Copy PDF Certificate',
       isFeatured: false,
       badge: 'Certified Graphic Designer',
       iconBg: 'from-[#FF1744] to-[#D50032]',
@@ -20,7 +20,7 @@ export default function CertificatesSection({ onOpenDemo, onOpenSampleCert }) {
       id: 2,
       key: 'web',
       title: 'Website Designing Certificate',
-      type: 'Official Hard Copy Certificate',
+      type: 'Soft Copy PDF Certificate',
       isFeatured: false,
       badge: 'Certified Web Developer',
       iconBg: 'from-[#FF1744] to-[#D50032]',
@@ -32,7 +32,7 @@ export default function CertificatesSection({ onOpenDemo, onOpenSampleCert }) {
       id: 3,
       key: 'master',
       title: 'Digital Marketing Master Program',
-      type: '🏆 Premium Hard Copy Diploma',
+      type: 'Premium Hard Copy Diploma',
       isFeatured: true,
       badge: 'Official DIGISEVAKS Certification',
       iconBg: 'from-[#FF1744] via-[#D50032] to-[#FF5C7A]',
@@ -90,7 +90,6 @@ export default function CertificatesSection({ onOpenDemo, onOpenSampleCert }) {
                 {/* Featured Badge for Master Diploma */}
                 {cert.isFeatured && (
                   <div className="absolute -top-3.5 sm:-top-4 left-1/2 -translate-x-1/2 bg-cta-red text-white font-heading font-extrabold text-[10px] sm:text-xs px-3.5 py-1 sm:px-5 sm:py-1.5 rounded-full uppercase tracking-wider shadow-md flex items-center space-x-1 whitespace-nowrap z-30">
-                    <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     <span>Most Valuable • Master Diploma</span>
                   </div>
                 )}
@@ -103,7 +102,7 @@ export default function CertificatesSection({ onOpenDemo, onOpenSampleCert }) {
                     </div>
 
                     <span className={`text-[10px] sm:text-[11px] font-heading font-bold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border ${cert.badgeBg}`}>
-                      {cert.type}
+                      {cert.type || cert.badge}
                     </span>
                   </div>
 
@@ -188,3 +187,5 @@ export default function CertificatesSection({ onOpenDemo, onOpenSampleCert }) {
     </section>
   );
 }
+
+

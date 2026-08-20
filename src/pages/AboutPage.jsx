@@ -164,26 +164,26 @@ export default function AboutPage({ onOpenDemo }) {
         </div>
 
         {/* Motive & Dream Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5">
           <FadeUp delay={0.1}>
-            <div className="bg-[#FFF5F7] rounded-2xl sm:rounded-3xl p-5 sm:p-10 border border-[#FF5C7A]/30 shadow-xs space-y-3 sm:space-y-4 h-full">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#FF1744] text-white flex items-center justify-center shadow-md">
-                <Compass className="w-5 h-5 sm:w-6 sm:h-6" />
+            <div className="bg-[#FFF5F7] rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-[#FF5C7A]/30 shadow-2xs space-y-2 sm:space-y-3 h-full">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#FF1744] text-white flex items-center justify-center shadow-xs">
+                <Compass className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
               </div>
-              <h3 className="font-heading text-lg sm:text-2xl font-extrabold text-[#111111]">Our Motive — True "Digital India"</h3>
-              <p className="text-[#6B7280] text-xs sm:text-base leading-relaxed">
+              <h3 className="font-heading text-base sm:text-lg font-bold text-[#111111]">Our Motive — True "Digital India"</h3>
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                 The motive behind DIGISEVAKS Academy is to train potential individuals and shape them into high-performing digital marketing professionals. We take real initiative to make a true "Digital India" by equipping candidates with in-demand AI skills, campaign analytics, and performance advertising.
               </p>
             </div>
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <div className="bg-[#FFF5F7] rounded-2xl sm:rounded-3xl p-5 sm:p-10 border border-[#FF5C7A]/30 shadow-xs space-y-3 sm:space-y-4 h-full">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#FF1744] text-white flex items-center justify-center shadow-md">
-                <Award className="w-5 h-5 sm:w-6 sm:h-6" />
+            <div className="bg-[#FFF5F7] rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-[#FF5C7A]/30 shadow-2xs space-y-2 sm:space-y-3 h-full">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#FF1744] text-white flex items-center justify-center shadow-xs">
+                <Award className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
               </div>
-              <h3 className="font-heading text-lg sm:text-2xl font-extrabold text-[#111111]">Our Dream & Industry Certifications</h3>
-              <p className="text-[#6B7280] text-xs sm:text-base leading-relaxed">
+              <h3 className="font-heading text-base sm:text-lg font-bold text-[#111111]">Our Dream & Industry Certifications</h3>
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                 We dream of nurturing quality digital marketing professionals who stand apart from the crowd. We award official DIGISEVAKS Master Diplomas along with Google & Meta certifications that speak for a thousand words in interviews!
               </p>
             </div>
