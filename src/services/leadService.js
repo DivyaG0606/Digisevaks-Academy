@@ -60,7 +60,6 @@ export async function submitLead(leadData) {
         body: web3FormData
       })
       .then(res => res.json())
-      .then(data => console.log("Web3Forms Email Sent:", data))
       .catch(err => console.error("Web3Forms Submission Error:", err))
     );
   }
@@ -74,7 +73,6 @@ export async function submitLead(leadData) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       })
-      .then(() => console.log("Google Sheets submission dispatched successfully"))
       .catch(err => console.error("Google Sheets Submission Error:", err))
     );
   }
