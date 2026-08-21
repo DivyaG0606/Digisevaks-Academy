@@ -63,7 +63,7 @@ export const locationsMap = {
     name: "Hadapsar, Pune",
     slug: "hadapsar",
     urlSlug: "digital-marketing-courses-in-hadapsar",
-    fullTitle: "Digital Marketing Training Institute in Hadapsar",
+    fullTitle: "Digital Marketing Training in Hadapsar, Pune",
     heroSubtitle: "Join DIGISEVAKS Academy for Master in AI Powered & Performance Driven Practical Digital Marketing Courses In Hadapsar.",
     rating: "4.9 / 5",
     studentsCount: "7,500+",
@@ -72,6 +72,9 @@ export const locationsMap = {
     phone1: "+91 84594 39131",
     phone2: "+91 87881 65631",
     address: "DIGISEVAKS Academy, Main Solapur Road, Near Mega Center, Hadapsar, Pune - 411028",
+    physicalBranch: false,
+    onlineTraining: true,
+    pageType: "online-city",
     reviews: [
       {
         name: "Allifiya Hozefa Darukhanawala",
@@ -103,78 +106,84 @@ export const locationsMap = {
     name: "Trivandrum, Kerala",
     slug: "trivandrum",
     urlSlug: "digital-marketing-course-in-trivandrum",
-    fullTitle: "Digital Marketing Training Institute in Trivandrum",
-    heroSubtitle: "Learn Practical Digital Marketing Courses in Trivandrum With Online And Offline Batches. Join Our Free Demo Today!",
+    fullTitle: "Online Live Digital Marketing Course for Students in Trivandrum",
+    heroSubtitle: "Learn Practical Digital Marketing Live Online from Trivandrum With Interactive Virtual Batches & 100% Placement Support. Join Our Free Demo Today!",
     rating: "4.9 / 5",
     studentsCount: "15,000+",
     placementsCount: "4,500+",
     batchesCount: "800+",
     phone1: "+91 84594 39131",
     phone2: "+91 87881 65631",
-    address: "DIGISEVAKS Academy, TC 26/871, Behind Saudi Airlines, Panavila Junction, Thycadu PO, Trivandrum, Kerala 695014",
+    address: "Online Live Interactive Training (Headquarters: Pune, Maharashtra)",
+    physicalBranch: false,
+    onlineTraining: true,
+    pageType: "online-city",
     reviews: [
       {
         name: "Siddharth V",
-        role: "Trivandrum Alumni",
+        role: "Trivandrum Online Student",
         stars: 5,
-        text: "Enrolling at DIGISEVAKS Academy Trivandrum was the best decision for my career. Hands-on practical assignments and great placement guidance!"
+        text: "Enrolling in DIGISEVAKS Academy online program was the best decision for my career. Hands-on practical assignments and great placement guidance!"
       },
       {
         name: "Anjali Menon",
-        role: "Trivandrum Student",
+        role: "Trivandrum Online Student",
         stars: 5,
-        text: "Top digital marketing course in Trivandrum! Got agency level exposure in Meta Ads, Google Ads, and GA4 with guaranteed placement assistance."
+        text: "Top online digital marketing course for students in Trivandrum! Got agency level exposure in Meta Ads, Google Ads, and GA4 with placement assistance."
       },
       {
         name: "Rahul Nair",
-        role: "Trivandrum Alumni",
+        role: "Trivandrum Graduate",
         stars: 5,
         text: "Excellent practical training. The LMS portal with 200+ video backups and 60+ live assignments helped me clear my interviews easily."
       }
     ],
     upcomingBatches: [
-      { id: 21, name: "Weekdays (3 months)", time: "9:00 AM - 11:00 AM", date: "2026-08-25", type: "CLASSROOM" },
-      { id: 22, name: "Weekdays (3 months)", time: "2:00 PM - 4:00 PM", date: "2026-08-27", type: "CLASSROOM" },
-      { id: 23, name: "Weekend Batch (4 months)", time: "10:00 AM - 2:00 PM", date: "2026-08-30", type: "ONLINE LIVE" }
+      { id: 21, name: "Online Weekdays (3 months)", time: "9:00 AM - 11:00 AM", date: "2026-08-25", type: "ONLINE LIVE" },
+      { id: 22, name: "Online Weekdays (3 months)", time: "2:00 PM - 4:00 PM", date: "2026-08-27", type: "ONLINE LIVE" },
+      { id: 23, name: "Online Weekend Batch (4 months)", time: "10:00 AM - 2:00 PM", date: "2026-08-30", type: "ONLINE LIVE" }
     ]
   },
   "surat": {
     name: "Surat, Gujarat",
     slug: "surat",
     urlSlug: "digital-marketing-course-in-surat",
-    fullTitle: "Digital Marketing Courses in Surat",
-    heroSubtitle: "Join DIGISEVAKS Academy for Master in AI Powered & Performance Driven Practical Digital Marketing Courses In Surat.",
+    fullTitle: "Online Live Digital Marketing Course for Students in Surat",
+    heroSubtitle: "Join DIGISEVAKS Academy for Master in AI Powered & Performance Driven Practical Digital Marketing Courses Live Online in Surat.",
     rating: "4.9 / 5",
     studentsCount: "20,000+",
     placementsCount: "6,800+",
     batchesCount: "1,200+",
     phone1: "+91 84594 39131",
     phone2: "+91 87881 65631",
-    address: "DIGISEVAKS Academy, UG-32, Marvella Corridor, VIP Road, Vesu, Surat, Gujarat 395007",
+    address: "Online Live Interactive Training (Headquarters: Pune, Maharashtra)",
+    physicalBranch: false,
+    onlineTraining: true,
+    pageType: "online-city",
     reviews: [
       {
         name: "Shashi Rani Dubey",
-        role: "Surat Student",
+        role: "Surat Online Student",
         stars: 5,
-        text: "Joining DIGISEVAKS Academy Surat was the best decision. Trainers are highly knowledgeable, course content is up-to-date, and live projects gave real-world experience."
+        text: "Joining DIGISEVAKS Academy online program from Surat was the best decision. Trainers are highly knowledgeable and live projects gave real-world experience."
       },
       {
         name: "Patel Sumit",
         role: "Surat Student",
         stars: 5,
-        text: "Best training class for digital marketing course in Surat. Friendly class environment, expert guidance, and detailed practical learning techniques."
+        text: "Best training program for digital marketing course for students in Surat. Friendly learning environment, expert guidance, and detailed practical techniques."
       },
       {
         name: "Parth Shivde",
-        role: "Surat Alumni",
+        role: "Surat Graduate",
         stars: 5,
-        text: "Great experience at DIGISEVAKS Academy Surat. Faculty put lots of effort to teach us live performance marketing and client campaign optimization."
+        text: "Great experience at DIGISEVAKS Academy online classes. Faculty put lots of effort to teach us live performance marketing and campaign optimization."
       }
     ],
     upcomingBatches: [
-      { id: 31, name: "Weekdays (3 months)", time: "10:00 AM - 12:00 PM", date: "2026-08-25", type: "CLASSROOM" },
-      { id: 32, name: "Weekdays (3 months)", time: "3:00 PM - 5:00 PM", date: "2026-08-27", type: "CLASSROOM" },
-      { id: 33, name: "Weekend Batch (4 months)", time: "11:00 AM - 3:00 PM", date: "2026-08-30", type: "ONLINE LIVE" }
+      { id: 31, name: "Online Weekdays (3 months)", time: "10:00 AM - 12:00 PM", date: "2026-08-25", type: "ONLINE LIVE" },
+      { id: 32, name: "Online Weekdays (3 months)", time: "3:00 PM - 5:00 PM", date: "2026-08-27", type: "ONLINE LIVE" },
+      { id: 33, name: "Online Weekend (4 months)", time: "11:00 AM - 3:00 PM", date: "2026-08-30", type: "ONLINE LIVE" }
     ]
   },
   "pcmc": {
@@ -190,6 +199,9 @@ export const locationsMap = {
     phone1: "+91 84594 39131",
     phone2: "+91 87881 65631",
     address: "DIGISEVAKS Academy, Opposite City One Mall, Chinchwad, Pune - 411019",
+    physicalBranch: true,
+    onlineTraining: true,
+    pageType: "physical-branch",
     reviews: [
       {
         name: "Bikash Muni",
@@ -213,7 +225,7 @@ export const locationsMap = {
     name: "Viman Nagar, Pune",
     slug: "viman-nagar",
     urlSlug: "digital-marketing-courses-in-viman-nagar",
-    fullTitle: "Digital Marketing Training Institute in Viman Nagar",
+    fullTitle: "Digital Marketing Training in Viman Nagar, Pune",
     heroSubtitle: "Top-Rated Practical Digital Marketing & AI Agency Course in Viman Nagar with 100% Job Placement Assistance.",
     rating: "4.9 / 5",
     studentsCount: "5,800+",
@@ -222,6 +234,9 @@ export const locationsMap = {
     phone1: "+91 84594 39131",
     phone2: "+91 87881 65631",
     address: "DIGISEVAKS Academy, Near Phoenix Marketcity, Viman Nagar, Pune - 411014",
+    physicalBranch: false,
+    onlineTraining: true,
+    pageType: "online-city",
     reviews: [
       {
         name: "Richa Gupta",
@@ -248,6 +263,9 @@ export const locationsMap = {
     phone1: "+91 84594 39131",
     phone2: "+91 87881 65631",
     address: "DIGISEVAKS Academy, Near Nal Stop Metro Station, Karve Road, Erandwane, Pune - 411004",
+    physicalBranch: false,
+    onlineTraining: true,
+    pageType: "online-city",
     reviews: [
       {
         name: "Pooja Patil",
@@ -265,52 +283,58 @@ export const locationsMap = {
     name: "Thane, Mumbai",
     slug: "thane",
     urlSlug: "digital-marketing-courses-in-thane",
-    fullTitle: "Digital Marketing Courses in Thane, Mumbai",
-    heroSubtitle: "Mumbai's Premier Agency-Driven Practical Digital Marketing Training Institute in Thane with 100% Job Placement.",
+    fullTitle: "Online Live Digital Marketing Course for Students in Thane",
+    heroSubtitle: "Premier Agency-Driven Practical Digital Marketing Training Live Online for Students in Thane with 100% Job Placement Assistance.",
     rating: "4.9 / 5",
     studentsCount: "8,100+",
     placementsCount: "3,200+",
     batchesCount: "550+",
     phone1: "+91 84594 39131",
     phone2: "+91 87881 65631",
-    address: "DIGISEVAKS Academy, Near Thane Railway Station West, Thane, Mumbai, Maharashtra 400601",
+    address: "Online Live Interactive Training (Headquarters: Pune, Maharashtra)",
+    physicalBranch: false,
+    onlineTraining: true,
+    pageType: "online-city",
     reviews: [
       {
         name: "Siddharth Mehta",
-        role: "Thane Branch Student",
+        role: "Thane Online Student",
         stars: 5,
         text: "Best decision for my career! Learned end-to-end Meta Ads, SEO audit, GA4 conversion tracking, and Google Search Ads."
       }
     ],
     upcomingBatches: [
-      { id: 71, name: "Weekdays (3 months)", time: "10:00 AM - 12:00 PM", date: "2026-08-25", type: "CLASSROOM" },
-      { id: 72, name: "Weekend Batch (4 months)", time: "10:00 AM - 2:00 PM", date: "2026-08-30", type: "ONLINE / CLASSROOM" }
+      { id: 71, name: "Online Weekdays (3 months)", time: "10:00 AM - 12:00 PM", date: "2026-08-25", type: "ONLINE LIVE" },
+      { id: 72, name: "Online Weekend (4 months)", time: "10:00 AM - 2:00 PM", date: "2026-08-30", type: "ONLINE LIVE" }
     ]
   },
   "delhi": {
     name: "New Delhi / Delhi NCR",
     slug: "delhi",
     urlSlug: "digital-marketing-courses-in-delhi",
-    fullTitle: "Digital Marketing Courses in Delhi NCR",
-    heroSubtitle: "India's No. 1 AI-Powered & Performance-Driven Digital Marketing Training Institute in Delhi NCR.",
+    fullTitle: "Online Live Digital Marketing Course for Students in Delhi NCR",
+    heroSubtitle: "India's No. 1 AI-Powered & Performance-Driven Digital Marketing Training Program Live Online for Students in Delhi NCR.",
     rating: "4.9 / 5",
     studentsCount: "11,200+",
     placementsCount: "4,100+",
     batchesCount: "850+",
     phone1: "+91 84594 39131",
     phone2: "+91 87881 65631",
-    address: "DIGISEVAKS Academy Delhi Branch, Connaught Place / South Extension, New Delhi - 110001",
+    address: "Online Live Interactive Training (Headquarters: Pune, Maharashtra)",
+    physicalBranch: false,
+    onlineTraining: true,
+    pageType: "online-city",
     reviews: [
       {
         name: "Vikram Sharma",
-        role: "Delhi Student",
+        role: "Delhi Online Student",
         stars: 5,
-        text: "Highly structured agency-style course. The AI prompt engineering for marketing and real ad campaign money allocation gave me a massive edge!"
+        text: "Highly structured agency-style online course. The AI prompt engineering for marketing and real ad campaign money allocation gave me a massive edge!"
       }
     ],
     upcomingBatches: [
-      { id: 81, name: "Weekdays (3 months)", time: "11:00 AM - 1:00 PM", date: "2026-08-25", type: "CLASSROOM & ONLINE" },
-      { id: 82, name: "Weekend Batch (4 months)", time: "10:30 AM - 3:30 PM", date: "2026-08-30", type: "ONLINE LIVE" }
+      { id: 81, name: "Online Weekdays (3 months)", time: "11:00 AM - 1:00 PM", date: "2026-08-25", type: "ONLINE LIVE" },
+      { id: 82, name: "Online Weekend (4 months)", time: "10:30 AM - 3:30 PM", date: "2026-08-30", type: "ONLINE LIVE" }
     ]
   }
 };
@@ -438,9 +462,12 @@ export function getCityData(slugKey) {
         ...defaultCityData,
         name: cityName,
         slug: normalized,
-        fullTitle: `Digital Marketing Courses in ${cityName}`,
-        heroSubtitle: `Join DIGISEVAKS Academy for Master in AI Powered & Performance Driven Practical Digital Marketing Courses In ${cityName}.`,
-        address: `DIGISEVAKS Academy Location Center, ${cityName}`
+        physicalBranch: false,
+        onlineTraining: true,
+        pageType: "online-city",
+        fullTitle: `Online Live Digital Marketing Course for Students in ${cityName}`,
+        heroSubtitle: `Learn Practical Digital Marketing Live Online from ${cityName} with Interactive Virtual Classes & 100% Placement Assistance.`,
+        address: "Online Live Interactive Training (Headquarters: Pune, Maharashtra)"
       };
     }
   }

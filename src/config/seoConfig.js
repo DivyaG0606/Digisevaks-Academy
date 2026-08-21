@@ -139,20 +139,87 @@ export const seoConfig = {
   }
 };
 
+import { getCityLocalContent } from '../data/cityLocalContent';
+
 /**
- * Generates dynamic SEO configuration for city landing pages
+ * Generates dynamic centralized SEO & content configuration for city landing pages
  */
 export function getCityPageSeoConfig(city) {
-  const cityTitle = city.fullTitle || `Digital Marketing Courses in ${city.name}`;
-  const slugPath = city.urlSlug ? `/${city.urlSlug}` : `/digital-marketing-courses-in-${city.slug || 'pune'}`;
-  
+  const isPhysical = Boolean(city.physicalBranch);
+  const isLocality = city.pageType === 'locality';
+  const cityName = city.name || 'Pune';
+  const slug = (city.slug || 'pune').toLowerCase().trim();
+  const slugPath = city.urlSlug ? `/${city.urlSlug}` : `/digital-marketing-courses-in-${slug}`;
+  const canonicalUrl = `${siteConfig.domain}${slugPath}`;
+
+  const localData = getCityLocalContent(slug);
+
+  // Approved indexable cities (9 A-pages + 15 B-pages = 24 Total Indexable Locations)
+  const indexableSlugs = new Set([
+    'karve-nagar-pune', 'karve-nagar', 'pcmc', 'thergaon-pcmc', 'pimpri-chinchwad',
+    'hadapsar', 'chhatrapati-sambhajinagar', 'nagpur', 'nashik',
+    'viman-nagar', 'nal-stop', 'kothrud-pune', 'kothrud',
+    'baner-pune', 'wakad-pune', 'hinjewadi-pune', 'akurdi-pcmc', 'bhosari-pcmc',
+    'kolhapur', 'sangli', 'satara', 'karad', 'solapur', 'ahmednagar', 'jalgaon', 'dhule', 'latur'
+  ]);
+
+  const isIndexable = isPhysical || indexableSlugs.has(slug) || indexableSlugs.has(city.urlSlug?.replace(/^\/digital-marketing-courses?-in-/, ''));
+  const indexStatus = isIndexable ? "index, follow" : "noindex, follow";
+
+  let seoTitle = localData?.seoTitle || "";
+  let metaDescription = localData?.metaDescription || "";
+  let heroHeading = localData?.h1Title || "";
+  let heroSubtitle = "";
+  let badgeText = "";
+
+  if (!seoTitle) {
+    if (isPhysical) {
+      seoTitle = city.fullTitle ? `${city.fullTitle} | Digisevaks Academy` : `Digital Marketing Course in ${cityName} | Digisevaks Academy`;
+      metaDescription = city.heroSubtitle || `Join Digisevaks Academy classroom branch in ${cityName} for 100% practical AI-powered digital marketing training with 100% placement support.`;
+      heroHeading = city.fullTitle || `Digital Marketing Course in ${cityName}`;
+      heroSubtitle = city.heroSubtitle || `Join Digisevaks Academy for Master in AI Powered & Performance Driven Practical Digital Marketing Courses in ${cityName}.`;
+      badgeText = "Official Digisevaks Campus";
+    } else if (isLocality) {
+      seoTitle = `Digital Marketing Course in ${cityName} | Digisevaks Academy`;
+      metaDescription = `Practical AI-powered digital marketing course for students in ${cityName}. Easy access to Pune classroom campus or live online batches.`;
+      heroHeading = `Digital Marketing Course in ${cityName}`;
+      heroSubtitle = `Master AI-Powered & Performance-Driven Digital Marketing in ${cityName} with 100% Practical Agency Training & Placement.`;
+      badgeText = "Pune Locality Center";
+    } else {
+      // Online-only cities
+      seoTitle = `Online Live Digital Marketing Course for Students in ${cityName} | Digisevaks Academy`;
+      metaDescription = `Join live interactive online digital marketing classes from ${cityName}. Master SEO, Meta Ads, Google PPC & AI tools with 100% placement assistance.`;
+      heroHeading = `Online Live Digital Marketing Course for Students in ${cityName}`;
+      heroSubtitle = `Learn Practical Digital Marketing Live Online from ${cityName} with Interactive Virtual Classes & 100% Placement Assistance.`;
+      badgeText = "Live Interactive Online Training";
+    }
+  } else {
+    heroSubtitle = `Master AI-Powered & Performance-Driven Digital Marketing in ${cityName} with 100% Practical Agency Training & 100% Placement Support.`;
+    badgeText = isPhysical ? "Official Digisevaks Campus" : "Pune Locality Center";
+  }
+
   return {
-    title: `${cityTitle} | DIGISEVAKS Academy 100% Practical Training`,
-    description: city.heroSubtitle || `Join DIGISEVAKS Academy for Master in AI Powered & Performance Driven Practical Digital Marketing Courses in ${city.name}. 100% Practical Training & Placement Support.`,
-    canonical: `${siteConfig.domain}${slugPath}`,
-    keywords: `digital marketing course in ${city.name}, best digital marketing institute ${city.name}, AI digital marketing training ${city.name}, performance marketing course ${city.name}, digital marketing course with placement ${city.name}`,
-    robots: "index, follow",
+    city: cityName,
+    slug: slug,
+    pageType: city.pageType || (isPhysical ? 'physical-branch' : isLocality ? 'locality' : 'online-city'),
+    physicalBranch: isPhysical,
+    onlineTraining: true,
+    indexStatus: indexStatus,
+    primaryKeyword: `digital marketing course in ${cityName}`,
+    secondaryKeywords: `online digital marketing course ${cityName}, best digital marketing institute ${cityName}, AI digital marketing training ${cityName}, performance marketing course ${cityName}`,
+    seoTitle: seoTitle,
+    title: seoTitle,
+    metaDescription: metaDescription,
+    description: metaDescription,
+    canonical: canonicalUrl,
+    robots: indexStatus,
     ogType: "website",
-    ogImage: `${siteConfig.domain}/logo.png`
+    ogImage: `${siteConfig.domain}/logo.png`,
+    content: {
+      heroHeading: heroHeading,
+      heroSubtitle: heroSubtitle,
+      badgeText: badgeText,
+      addressText: isPhysical ? city.address : "Online Live Interactive Training (Headquarters: Pune, Maharashtra)"
+    }
   };
 }

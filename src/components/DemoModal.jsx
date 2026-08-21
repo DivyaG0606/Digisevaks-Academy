@@ -58,17 +58,17 @@ export default function DemoModal({ isOpen, onClose, type = 'demo' }) {
   };
 
   return (
-    <div 
+    <div
       onClick={onClose}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-md animate-fade-in cursor-pointer"
     >
-      <div 
+      <div
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-[360px] sm:max-w-[400px] bg-white border border-gray-200 rounded-3xl p-4 sm:p-5 text-[#111111] shadow-2xl cursor-default"
       >
-        
+
         {/* Close Button with high z-index */}
-        <button 
+        <button
           onClick={onClose}
           className="absolute top-3 right-3 p-1.5 text-gray-400 hover:text-[#111111] rounded-full bg-gray-100 hover:bg-gray-200 transition-colors z-20"
           aria-label="Close modal"
@@ -109,7 +109,7 @@ export default function DemoModal({ isOpen, onClose, type = 'demo' }) {
               {type === 'brochure' ? 'Syllabus Downloading!' : 'Application Received!'}
             </h4>
             <p className="text-xs text-[#6B7280]">
-              {type === 'brochure' 
+              {type === 'brochure'
                 ? 'Your course prospectus is downloading automatically. Our admissions team will contact you shortly.'
                 : 'Our admissions team will contact you shortly via Call / WhatsApp.'}
             </p>
@@ -120,7 +120,7 @@ export default function DemoModal({ isOpen, onClose, type = 'demo' }) {
               <label className="block text-[11px] font-bold text-[#111111] mb-0.5">
                 Full Name <span className="text-[#FF1744]">*</span>
               </label>
-              <input 
+              <input
                 type="text"
                 required
                 placeholder="Enter your name"
@@ -134,7 +134,7 @@ export default function DemoModal({ isOpen, onClose, type = 'demo' }) {
               <label className="block text-[11px] font-bold text-[#111111] mb-0.5">
                 Phone / WhatsApp Number <span className="text-[#FF1744]">*</span>
               </label>
-              <input 
+              <input
                 type="tel"
                 required
                 placeholder="+91 84594 39131"
@@ -148,7 +148,7 @@ export default function DemoModal({ isOpen, onClose, type = 'demo' }) {
               <label className="block text-[11px] font-bold text-[#111111] mb-0.5">
                 Email Address <span className="text-[#FF1744]">*</span>
               </label>
-              <input 
+              <input
                 type="email"
                 required
                 placeholder="yourname@gmail.com"
@@ -176,7 +176,7 @@ export default function DemoModal({ isOpen, onClose, type = 'demo' }) {
               </select>
             </div>
 
-            <button 
+            <button
               type="submit"
               disabled={isSubmitting}
               className="w-full py-2.5 bg-cta-red text-white font-heading font-bold text-xs sm:text-sm rounded-xl shadow-saas hover:opacity-95 transition-all flex items-center justify-center space-x-2 active:scale-95 disabled:opacity-50 cursor-pointer mt-3"

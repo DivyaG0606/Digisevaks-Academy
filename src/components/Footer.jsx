@@ -8,19 +8,99 @@ export default function Footer({ onOpenDemo }) {
   const isHomePage = location.pathname === '/';
 
   const CityInterlinkingBlock = () => (
-    <div className="space-y-3">
-      <div className="text-[11px] font-bold text-gray-300 uppercase tracking-wider">
-        ATTEND OUR ONLINE LIVE INTERACTIVE PRACTICAL DIGITAL MARKETING COURSE FROM YOUR CITY LOCATION :
+    <div className="space-y-6">
+      {/* Tier 1: Official Offline Classroom Campuses */}
+      <div className="space-y-2">
+        <div className="text-[11px] font-bold text-[#FF5C7A] uppercase tracking-wider flex items-center space-x-2">
+          <MapPin className="w-3.5 h-3.5 text-[#FF1744]" />
+          <span>Official Offline Classroom Campuses:</span>
+        </div>
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-bold text-white">
+          <Link to="/digital-marketing-courses-in-karve-nagar-pune" className="px-3 py-1 bg-[#FF1744]/20 border border-[#FF1744]/40 rounded-lg hover:bg-[#FF1744] hover:text-white transition-all text-[#FF5C7A] flex items-center space-x-1.5">
+            <span>Karve Nagar (Headquarters)</span>
+          </Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-pimpri-chinchwad" className="px-3 py-1 bg-[#FF1744]/20 border border-[#FF1744]/40 rounded-lg hover:bg-[#FF1744] hover:text-white transition-all text-[#FF5C7A] flex items-center space-x-1.5">
+            <span>PCMC (Chinchwad Campus)</span>
+          </Link>
+        </div>
       </div>
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs text-gray-400">
-        {allCitiesFooterList.map((cityItem, idx) => (
-          <React.Fragment key={idx}>
-            <Link to={cityItem.route} className="hover:text-[#FF5C7A] transition-colors">
-              {cityItem.name}
-            </Link>
-            {idx < allCitiesFooterList.length - 1 && <span className="text-gray-600">|</span>}
-          </React.Fragment>
-        ))}
+
+      {/* Tier 2: Pune & PCMC Online Live Training Localities */}
+      <div className="space-y-2">
+        <div className="text-[11px] font-bold text-gray-300 uppercase tracking-wider">
+          Pune & PCMC Online Live Batches & Localities:
+        </div>
+        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs text-gray-400">
+          <Link to="/digital-marketing-courses-in-thergaon-pcmc" className="hover:text-[#FF5C7A] transition-colors">Thergaon PCMC</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-hadapsar" className="hover:text-[#FF5C7A] transition-colors">Hadapsar</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-viman-nagar" className="hover:text-[#FF5C7A] transition-colors">Viman Nagar</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-nal-stop" className="hover:text-[#FF5C7A] transition-colors">Nal Stop Metro Hub</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-kothrud-pune" className="hover:text-[#FF5C7A] transition-colors">Kothrud</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-baner-pune" className="hover:text-[#FF5C7A] transition-colors">Baner</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-wakad-pune" className="hover:text-[#FF5C7A] transition-colors">Wakad</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-hinjewadi-pune" className="hover:text-[#FF5C7A] transition-colors">Hinjewadi IT Park</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-akurdi-pcmc" className="hover:text-[#FF5C7A] transition-colors">Akurdi</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-bhosari-pcmc" className="hover:text-[#FF5C7A] transition-colors">Bhosari</Link>
+        </div>
+      </div>
+
+      {/* Tier 3: Maharashtra & National Online Live Interactive Batches */}
+      <div className="space-y-2">
+        <div className="text-[11px] font-bold text-gray-300 uppercase tracking-wider">
+          Maharashtra & India Online Live Interactive Batches:
+        </div>
+        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs text-gray-400">
+          <Link to="/digital-marketing-courses-in-chhatrapati-sambhajinagar" className="hover:text-[#FF5C7A] transition-colors font-semibold text-gray-200">Chhatrapati Sambhajinagar</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-nagpur" className="hover:text-[#FF5C7A] transition-colors font-semibold text-gray-200">Nagpur</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-nashik" className="hover:text-[#FF5C7A] transition-colors font-semibold text-gray-200">Nashik</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-kolhapur" className="hover:text-[#FF5C7A] transition-colors">Kolhapur</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-sangli" className="hover:text-[#FF5C7A] transition-colors">Sangli</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-satara" className="hover:text-[#FF5C7A] transition-colors">Satara</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-karad" className="hover:text-[#FF5C7A] transition-colors">Karad</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-solapur" className="hover:text-[#FF5C7A] transition-colors">Solapur</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-ahmednagar" className="hover:text-[#FF5C7A] transition-colors">Ahmednagar</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-jalgaon" className="hover:text-[#FF5C7A] transition-colors">Jalgaon</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-dhule" className="hover:text-[#FF5C7A] transition-colors">Dhule</Link>
+          <span className="text-gray-600">•</span>
+          <Link to="/digital-marketing-courses-in-latur" className="hover:text-[#FF5C7A] transition-colors">Latur</Link>
+        </div>
+      </div>
+
+      {/* Tier 3: Online Live Interactive Training Cities */}
+      <div className="space-y-2">
+        <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+          Online Live Interactive Batches Across India:
+        </div>
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-gray-500">
+          {allCitiesFooterList.slice(20).map((cityItem, idx) => (
+            <React.Fragment key={idx}>
+              <Link to={cityItem.route} className="hover:text-gray-300 transition-colors">
+                {cityItem.name}
+              </Link>
+              {idx < allCitiesFooterList.length - 21 && <span className="text-gray-700">|</span>}
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -29,12 +109,10 @@ export default function Footer({ onOpenDemo }) {
     <footer className="bg-[#111827] text-white border-t border-gray-800 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         
-        {/* Top City Interlinking Section (Shown on all pages EXCEPT Home page) */}
-        {!isHomePage && (
-          <div className="pb-8 mb-10 border-b border-gray-800">
-            <CityInterlinkingBlock />
-          </div>
-        )}
+        {/* City Interlinking Section (Rendered once inside Footer across all pages) */}
+        <div className="pb-8 mb-10 border-b border-gray-800">
+          <CityInterlinkingBlock />
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10">
 

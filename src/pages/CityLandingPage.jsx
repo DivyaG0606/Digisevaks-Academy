@@ -4,32 +4,74 @@ import SEO from '../components/SEO';
 import { getCityPageSeoConfig } from '../config/seoConfig';
 import { getCourseSchema, getFaqSchema, getBreadcrumbSchema } from '../data/schemaData';
 import { 
-  Sparkles, CheckCircle2, Phone, Star, ShieldCheck, Award, BookOpen, 
-  Video, Users, Laptop, Briefcase, ChevronDown, ChevronUp, MapPin, 
-  ArrowRight, Download, Send, Clock, Calendar, Globe
+  Sparkles, CheckCircle2, Phone, Star, ShieldCheck, Award, 
+  Users, Briefcase, ChevronDown, ChevronUp, MapPin, 
+  ArrowRight, Send, Clock, Globe
 } from 'lucide-react';
 import { getCityData, allCitiesFooterList } from '../data/locationsData';
+import { getCityLocalContent } from '../data/cityLocalContent';
 import { syllabusModules } from '../data/syllabusData';
 import { submitLead } from '../services/leadService';
-import { TextMaskReveal, FadeUp, ScaleReveal } from '../components/animations/MotionComponents';
+import { TextMaskReveal } from '../components/animations/MotionComponents';
+
+import NotFoundPage from './NotFoundPage';
 
 export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
   const params = useParams();
   const location = useLocation();
 
   // Extract slug from prop, params, or current URL pathname
-  let extractedSlug = locationSlugOverride || params.citySlug || params.locationSlug || params['*'];
+  let extractedSlug =
+    locationSlugOverride ||
+    params.citySlug ||
+    params.locationSlug ||
+    params['*'] ||
+    '';
 
-  if (!extractedSlug || extractedSlug === 'hadapsar') {
-    const rawPath = location.pathname;
-    const match = rawPath.match(/\/digital-marketing-courses?-in-(.+)/);
-    if (match && match[1]) {
-      extractedSlug = match[1];
+  if (typeof extractedSlug === 'string') {
+    extractedSlug = extractedSlug
+      .replace(/^digital-marketing-courses?-in-/, '')
+      .replace(/\/$/, '')
+      .trim()
+      .toLowerCase();
+  }
+
+  if (!extractedSlug) {
+    const match = location.pathname.match(/\/digital-marketing-courses?-in-([^/]+)/);
+    if (match?.[1]) {
+      extractedSlug = match[1].toLowerCase().trim();
     }
   }
 
-  const city = getCityData(extractedSlug);
+  const normalizedSlug = extractedSlug;
+
+  // Check if slug belongs to a registered city
+  const isValidCitySlug = Boolean(
+    allCitiesFooterList.some((item) => {
+      const routeSlug = item.route
+        ?.replace(/^\/digital-marketing-courses?-in-/, '')
+        .toLowerCase()
+        .trim();
+      return (
+        routeSlug === normalizedSlug ||
+        item.slug?.toLowerCase().trim() === normalizedSlug
+      );
+    }) || getCityData(normalizedSlug)?.slug?.toLowerCase() === normalizedSlug
+  );
+
+  // If invalid city slug, return proper NotFoundPage (404)
+  if (!normalizedSlug || !isValidCitySlug) {
+    return <NotFoundPage onOpenDemo={onOpenDemo} />;
+  }
+
+  const city = getCityData(normalizedSlug);
+
+  if (!city) {
+    return <NotFoundPage onOpenDemo={onOpenDemo} />;
+  }
+
   const citySeo = getCityPageSeoConfig(city);
+  const localContent = getCityLocalContent(normalizedSlug);
 
   const [activeTab, setActiveTab] = useState('jobseeker');
   const [openModuleId, setOpenModuleId] = useState(1);
@@ -57,7 +99,7 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location.pathname, extractedSlug]);
+  }, [location.pathname, normalizedSlug]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -72,15 +114,16 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
         source: `City Page (${city.slug})`,
         notes: `Course Type: ${leadForm.courseType}, Purpose: ${leadForm.coursePurpose}`
       });
+      setFormSubmitted(true);
     } catch (err) {
-      console.log('Lead submission log:', err);
+      console.error('Lead submission failed:', err);
+      alert('Unable to submit your request. Please try again.');
     } finally {
       setIsSubmitting(false);
-      setFormSubmitted(true);
     }
   };
 
-  const faqs = [
+  const defaultFaqs = [
     {
       id: 1,
       q: `Which digital marketing course is best in ${city.name}?`,
@@ -103,6 +146,10 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
     }
   ];
 
+  const faqs = localContent && localContent.localFaqs 
+    ? localContent.localFaqs.map((item, idx) => ({ id: idx + 1, q: item.q, a: item.a }))
+    : defaultFaqs;
+
   const citySchemas = [
     getCourseSchema(),
     getFaqSchema(faqs),
@@ -115,6 +162,7 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
         title={citySeo.title}
         description={citySeo.description}
         canonical={citySeo.canonical}
+        robots={citySeo.robots}
         keywords={citySeo.keywords}
         schema={citySchemas}
       />
@@ -135,23 +183,23 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
               
               <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FF1744]/20 border border-[#FF1744]/40 text-[#FF5C7A] text-xs font-bold uppercase tracking-wider">
                 <Sparkles className="w-4 h-4 text-[#FF1744]" />
-                <span>India's 1st Practical Agency-Driven Institute</span>
+                <span>{citySeo.content?.badgeText || (city.physicalBranch ? "Official DIGISEVAKS Campus" : "Live Interactive Online Training")}</span>
               </div>
 
               <TextMaskReveal
                 as="h1"
                 className="font-heading text-3xl sm:text-5xl font-black leading-tight tracking-tight text-white"
               >
-                {city.fullTitle}
+                {citySeo.content?.heroHeading || city.fullTitle}
               </TextMaskReveal>
 
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl font-medium">
-                "{city.heroSubtitle}"
+                &ldquo;{citySeo.content?.heroSubtitle || city.heroSubtitle}&rdquo;
               </p>
 
               <div className="p-3.5 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 text-xs sm:text-sm text-[#FF5C7A] font-semibold flex items-center space-x-2">
                 <ShieldCheck className="w-5 h-5 text-[#FF1744] flex-shrink-0" />
-                <span>"Enough With Theory, It's Time To Do Hands-On & Practical Implementation"</span>
+                <span>&ldquo;Enough With Theory, It&apos;s Time To Do Hands-On &amp; Practical Implementation&rdquo;</span>
               </div>
 
               {/* Bullet Grid */}
@@ -422,7 +470,8 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
               </div>
 
               <button
-                onClick={() => onOpenDemo('demo')}
+                type="button"
+                onClick={() => onOpenDemo?.('demo')}
                 className="w-full py-3 bg-[#111827] hover:bg-[#1f2937] text-white text-xs font-bold rounded-xl shadow-md transition-all cursor-pointer"
               >
                 Book Free Demo Lecture at {city.name} Branch
@@ -430,11 +479,93 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
             </div>
 
           </div>
-
         </div>
       </section>
 
+      {/* ---------------- 3B. UNIQUE LOCATION INSIGHTS & INDUSTRY CONTEXT ---------------- */}
+      {localContent && (
+        <section className="py-12 sm:py-16 bg-slate-900 text-white font-sans">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-4">
+                <span className="text-[#FF1744] font-bold text-xs uppercase tracking-widest bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">
+                  LOCAL INDUSTRY DEMAND ({localContent.city})
+                </span>
+                <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
+                  Why Learn Digital Marketing in {localContent.city}?
+                </h2>
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                  {localContent.whyLearn}
+                </p>
 
+                {/* Local Connectivity Info */}
+                <div className="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-2">
+                  <div className="text-xs font-bold text-[#FF5C7A] uppercase tracking-wider flex items-center space-x-2">
+                    <MapPin className="w-4 h-4 text-[#FF1744]" />
+                    <span>Campus Transit & Connectivity</span>
+                  </div>
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    {localContent.connectivity}
+                  </p>
+                </div>
+              </div>
+
+              {/* Local Industries & Salary Packages */}
+              <div className="lg:col-span-5 bg-white/5 backdrop-blur-md p-6 rounded-3xl border border-white/10 space-y-6">
+                <div>
+                  <h3 className="font-heading text-sm font-bold text-white uppercase tracking-wider mb-3">
+                    Top Hiring Industries in {city.name}
+                  </h3>
+                  <div className="grid grid-cols-1 gap-2">
+                    {localContent.localIndustries?.map((ind, idx) => (
+                      <div key={idx} className="flex items-center space-x-2.5 bg-white/5 p-2.5 rounded-xl text-xs text-gray-200 border border-white/5">
+                        <CheckCircle2 className="w-4 h-4 text-[#FF1744] flex-shrink-0" />
+                        <span>{ind}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-heading text-sm font-bold text-white uppercase tracking-wider mb-3">
+                    Local Role Packages & Hiring Types
+                  </h3>
+                  <div className="space-y-2">
+                    {localContent.careerOpportunities?.map((opp, idx) => (
+                      <div key={idx} className="flex items-center justify-between p-2.5 bg-white/5 rounded-xl text-xs border border-white/5">
+                        <div>
+                          <div className="font-bold text-white">{opp.role}</div>
+                          <div className="text-[10px] text-gray-400">{opp.hiringType}</div>
+                        </div>
+                        <div className="font-extrabold text-[#FF5C7A] text-xs">{opp.avgSalary}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Local Batch Timings */}
+            {localContent.batchInfo && (
+              <div className="p-4 bg-[#FF1744]/10 rounded-2xl border border-[#FF1744]/30 text-xs text-gray-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="flex items-center space-x-2">
+                  <Clock className="w-5 h-5 text-[#FF1744] flex-shrink-0" />
+                  <span><strong className="text-white">Local Batch Schedule:</strong> {localContent.batchInfo}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => onOpenDemo?.('demo')}
+                  className="px-4 py-2 bg-[#FF1744] hover:bg-[#D50032] text-white text-xs font-bold rounded-xl transition-all cursor-pointer whitespace-nowrap"
+                >
+                  Reserve Batch Seat
+                </button>
+              </div>
+            )}
+
+          </div>
+        </section>
+      )}
 
       {/* ---------------- 5. TARGET AUDIENCE TABS ---------------- */}
       <section className="py-14 sm:py-20 bg-gray-50">
@@ -454,7 +585,7 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
             {[
               { id: 'jobseeker', label: 'Job Seekers', icon: Briefcase },
               { id: 'professional', label: 'Working Professionals', icon: Users },
-              { id: 'business', label: 'Business Owners', icon: Laptop },
+              { id: 'business', label: 'Business Owners', icon: Globe },
               { id: 'freelancer', label: 'Freelancers', icon: Globe }
             ].map((tab) => {
               const Icon = tab.icon;
@@ -669,8 +800,6 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
         </div>
       </section>
 
-
-
       {/* ---------------- 9. STUDENT REVIEWS / TESTIMONIALS ---------------- */}
       <section className="py-14 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -693,7 +822,7 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
                       ))}
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed italic">
-                      "{city.reviews[activeReviewIdx % city.reviews.length]?.text}"
+                      &ldquo;{city.reviews[activeReviewIdx % city.reviews.length]?.text}&rdquo;
                     </p>
                   </div>
 
@@ -736,7 +865,7 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
                     ))}
                   </div>
                   <p className="text-xs text-gray-600 leading-relaxed italic">
-                    "{rev.text}"
+                    &ldquo;{rev.text}&rdquo;
                   </p>
                 </div>
 
@@ -781,40 +910,6 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
                 </div>
               );
             })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ---------------- 11. CITY LOCATION SEO FOOTER GRID ---------------- */}
-      <section className="py-10 bg-[#111827] text-white border-t border-gray-800 font-sans">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          
-          <h3 className="font-heading text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider">
-            Attend Our Online Live Interactive Practical Digital Marketing Course From Your City Location :
-          </h3>
-
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs text-gray-400">
-            {allCitiesFooterList.map((item, i) => (
-              <React.Fragment key={i}>
-                <Link
-                  to={item.route}
-                  className="hover:text-[#FF5C7A] transition-colors font-medium hover:underline"
-                >
-                  {item.name}
-                </Link>
-                {i < allCitiesFooterList.length - 1 && <span className="text-gray-600">|</span>}
-              </React.Fragment>
-            ))}
-          </div>
-
-          <div className="pt-4 text-[11px] text-gray-500 border-t border-gray-800 flex flex-wrap justify-between items-center gap-2">
-            <div>
-              Copyright © 2026 DIGISEVAKS Academy. All Rights Reserved.
-            </div>
-            <div>
-              Contact: {city.phone1} / {city.phone2} • {city.address}
-            </div>
           </div>
 
         </div>
