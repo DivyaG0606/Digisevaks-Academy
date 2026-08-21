@@ -1,4 +1,6 @@
 import React from 'react';
+import SEO from '../components/SEO';
+import { getOrganizationSchema } from '../data/schemaData';
 import Hero from '../components/Hero';
 import Stats from '../components/Stats';
 import AboutVision from '../components/AboutVision';
@@ -16,6 +18,7 @@ import ContactSection from '../components/ContactSection';
 export default function Home({ onOpenDemo, onOpenSampleCert }) {
   return (
     <div className="animate-fade-in">
+      <SEO pageKey="home" schema={getOrganizationSchema()} />
       <Hero onOpenDemo={onOpenDemo} />
       <Stats />
       <AboutVision />

@@ -1,10 +1,13 @@
 import React from 'react';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../data/schemaData';
 import ContactSection from '../components/ContactSection';
 import { TextMaskReveal, FadeUp } from '../components/animations/MotionComponents';
 
 export default function ContactPage() {
   return (
     <div className="py-6 sm:py-16 bg-white font-sans animate-fade-in">
+      <SEO pageKey="contact" schema={getBreadcrumbSchema([{ name: 'Contact', url: '/contact' }])} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-10 text-center space-y-2">
         <span className="bg-[#FFF5F7] text-[#FF1744] border border-[#FF5C7A]/30 text-[10px] sm:text-xs font-heading font-bold px-3 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase tracking-wider shadow-xs inline-block">
           Reach Out To Us

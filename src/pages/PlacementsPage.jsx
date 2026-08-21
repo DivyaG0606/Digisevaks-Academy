@@ -1,19 +1,17 @@
 import React, { useEffect } from 'react';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../data/schemaData';
 import PlacementSection from '../components/PlacementSection';
 import { TextMaskReveal, FadeUp } from '../components/animations/MotionComponents';
 
 export default function PlacementsPage({ onOpenDemo }) {
   useEffect(() => {
-    document.title = "100% Placement Assistance Digital Marketing Course Pune | DIGISEVAKS Academy";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Get 100% Placement Assistance, ATS resume building, HR mock interviews, and direct agency referrals with DIGISEVAKS Academy Pune & PCMC. 7,500+ candidates placed!");
-    }
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="py-6 sm:py-12 bg-white font-sans animate-fade-in">
+      <SEO pageKey="placements" schema={getBreadcrumbSchema([{ name: 'Placements', url: '/placements' }])} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center space-y-2">
         <span className="bg-red-50 text-[#FF1744] border border-[#FF5C7A]/30 text-[10px] sm:text-xs font-heading font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-xs inline-block">
           100% PLACEMENT ASSISTANCE PROGRAM

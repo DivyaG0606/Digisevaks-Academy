@@ -1,0 +1,15 @@
+# robots.txt for DIGISEVAKS Academy (https://digisevaksacademy.com)
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /src/
+Allow: /assets/
+Allow: /logo.png
+
+# Disallow private and administrative paths if any
+Disallow: /scratch/
+Disallow: /admin/
+Disallow: /*?*
+
+# Sitemap Location
+Sitemap: https://digisevaksacademy.com/sitemap.xml

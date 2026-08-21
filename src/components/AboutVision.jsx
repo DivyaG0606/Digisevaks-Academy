@@ -92,27 +92,27 @@ export default function AboutVision() {
           </div>
         </div>
 
-        {/* Vision & Mission Cards - Slightly smaller on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
+        {/* Vision & Mission Cards - Compact & Refined */}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <FadeUp delay={0.1}>
-            <div className="bg-gradient-to-br from-white to-[#FFF5F7] rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-red-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#FF1744] text-white flex items-center justify-center mb-3 sm:mb-6 shadow-lg shadow-red-600/20">
-                <Compass className="w-5 h-5 sm:w-8 sm:h-8" />
+            <div className="bg-gradient-to-br from-white to-[#FFF5F7] rounded-2xl p-4 sm:p-6 border border-red-100 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#FF1744] text-white flex items-center justify-center mb-3 sm:mb-4 shadow-md shadow-red-600/20">
+                <Compass className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h3 className="text-lg sm:text-2xl font-black text-[#111111]">Our Vision</h3>
-              <p className="mt-2 sm:mt-3 text-gray-600 leading-relaxed text-xs sm:text-base">
+              <h3 className="text-base sm:text-xl font-extrabold text-[#111111] font-heading">Our Vision</h3>
+              <p className="mt-1.5 sm:mt-2 text-gray-600 leading-relaxed text-xs sm:text-sm">
                 To become a trusted, AI-integrated digital marketing academy in Pune — known for practical, industry-relevant training that prepares students, entrepreneurs, and professionals for real marketing work.
               </p>
             </div>
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <div className="bg-gradient-to-br from-white to-[#FFF5F7] rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-red-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#FF1744] text-white flex items-center justify-center mb-3 sm:mb-6 shadow-lg shadow-red-600/20">
-                <Target className="w-5 h-5 sm:w-8 sm:h-8" />
+            <div className="bg-gradient-to-br from-white to-[#FFF5F7] rounded-2xl p-4 sm:p-6 border border-red-100 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#FF1744] text-white flex items-center justify-center mb-3 sm:mb-4 shadow-md shadow-red-600/20">
+                <Target className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h3 className="text-lg sm:text-2xl font-black text-[#111111]">Our Mission</h3>
-              <p className="mt-2 sm:mt-3 text-gray-600 leading-relaxed text-xs sm:text-base">
+              <h3 className="text-base sm:text-xl font-extrabold text-[#111111] font-heading">Our Mission</h3>
+              <p className="mt-1.5 sm:mt-2 text-gray-600 leading-relaxed text-xs sm:text-sm">
                 To make practical, affordable digital marketing education accessible — through hands-on mentor guidance, agency-style project work, and structured career support.
               </p>
             </div>

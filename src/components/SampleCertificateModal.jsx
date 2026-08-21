@@ -181,9 +181,9 @@ export default function SampleCertificateModal({ isOpen, onClose, defaultCertTyp
 
               {/* Student Name Placeholder */}
               <div className="py-1">
-                <h1 className="font-serif text-xl sm:text-4xl font-black text-red-600 tracking-wider inline-block border-b-2 border-[#FF1744]/40 px-4 sm:px-6 pb-1 bg-red-50/80 rounded-t-lg">
+                <div className="font-serif text-xl sm:text-4xl font-black text-red-600 tracking-wider inline-block border-b-2 border-[#FF1744]/40 px-4 sm:px-6 pb-1 bg-red-50/80 rounded-t-lg">
                   [ STUDENT NAME GOES HERE ]
-                </h1>
+                </div>
                 <span className="text-[9px] sm:text-[10px] text-red-500 font-bold uppercase tracking-widest block mt-0.5">
                   ( DEMO SAMPLE SPECIMEN COPY )
                 </span>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../data/schemaData';
 import {
   Search,
   Filter,
@@ -688,12 +690,7 @@ export default function BlogPage({ onOpenDemo }) {
 
   return (
     <div className="py-6 sm:py-12 bg-[#FFF5F7]/50 font-sans animate-fade-in min-h-screen">
-
-      {/* Inject Google SEO Schema JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
-      />
+      <SEO pageKey="blog" schema={[blogJsonLd, getBreadcrumbSchema([{ name: 'Blog', url: '/blog' }])]} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-10">
 

@@ -56,35 +56,35 @@ export default function LiveProjects() {
           </FadeUp>
         </div>
 
-        {/* Grid of Project Cards */}
-        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+        {/* Grid of Project Cards - Compact & Refined */}
+        <StaggerContainer staggerDelay={0.08} className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-5">
           {projects.map((proj, idx) => {
             const Icon = proj.icon;
             return (
               <StaggerItem key={idx}>
-                <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full group">
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
                   <div>
-                    <div className="flex items-center justify-between mb-4 sm:mb-6">
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl ${proj.color} text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform`}>
-                        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
+                      <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl ${proj.color} text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform`}>
+                        <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
                       </div>
-                      <span className="text-[10px] sm:text-xs font-bold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-slate-100 text-slate-700">
+                      <span className="text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
                         {proj.category}
                       </span>
                     </div>
 
-                    <h3 className="text-base sm:text-xl font-bold text-slate-900 leading-snug group-hover:text-red-600 transition-colors">
+                    <h3 className="text-sm sm:text-base font-extrabold text-slate-900 leading-snug group-hover:text-red-600 transition-colors">
                       {proj.title}
                     </h3>
 
-                    <p className="mt-2.5 text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                    <p className="mt-1.5 sm:mt-2 text-slate-600 text-[11px] sm:text-xs leading-relaxed font-normal">
                       {proj.desc}
                     </p>
                   </div>
 
-                  <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-xs font-bold text-slate-500">
+                  <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] sm:text-[11px] font-bold text-slate-500">
                     <span className="flex items-center space-x-1 text-emerald-600">
-                      <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      <ShieldCheck className="w-3.5 h-3.5" />
                       <span>Practical Case Study</span>
                     </span>
                     <span>Portfolio Ready</span>

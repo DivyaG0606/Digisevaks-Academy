@@ -1,4 +1,6 @@
 import React from 'react';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../data/schemaData';
 import {
   Compass,
   Award,
@@ -33,6 +35,7 @@ export default function AboutPage({ onOpenDemo }) {
 
   return (
     <div className="py-6 sm:py-12 bg-white font-sans animate-fade-in">
+      <SEO pageKey="about" schema={getBreadcrumbSchema([{ name: 'About Us', url: '/about' }])} />
 
       {/* Header Banner */}
       <div className="bg-hero-radial bg-dot-pattern py-10 sm:py-16 border-b border-gray-200 text-center px-4">

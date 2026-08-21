@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
+import { getCourseSchema, getBreadcrumbSchema } from '../data/schemaData';
 import { Download, Search, CheckCircle, Target, Globe, BookOpen, Layers, Sparkles, Plus, Minus, FileText, ArrowRight } from 'lucide-react';
 import { syllabusModules, specializations, courseHighlights } from '../data/syllabusData';
 import { TextMaskReveal, FadeUp, StaggerContainer, StaggerItem } from '../components/animations/MotionComponents';
@@ -11,14 +13,13 @@ export default function SyllabusPage({ onOpenDemo }) {
   // Extract unique categories
   const categories = ['All', ...new Set(syllabusModules.map(m => m.category))];
 
-  // Manage SEO without external dependencies
-  React.useEffect(() => {
-    document.title = "Digital Marketing Course Syllabus | DigiSevaks Academy";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Explore the complete DigiSevaks Academy Digital Marketing course syllabus covering SEO, Google Ads, Meta Ads, Social Media, Analytics, AI, Content Marketing, Freelancing and more.");
-    }
-  }, []);
+  const syllabusSchemas = [
+    getCourseSchema(),
+    getBreadcrumbSchema([
+      { name: 'Courses', url: '/courses' },
+      { name: 'Syllabus', url: '/courses/digital-marketing/syllabus' }
+    ])
+  ];
 
   // Filter modules based on search and category
   const filteredModules = syllabusModules.filter(module => {
@@ -48,6 +49,7 @@ export default function SyllabusPage({ onOpenDemo }) {
 
   return (
     <>
+      <SEO pageKey="syllabus" schema={syllabusSchemas} />
       <div className="bg-[#FFF5F7] min-h-screen font-sans pb-20">
         
         {/* HERO SECTION */}

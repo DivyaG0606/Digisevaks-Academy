@@ -1,9 +1,12 @@
 import React from 'react';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../data/schemaData';
 import CertificatesSection from '../components/CertificatesSection';
 
 export default function CertificatesPage({ onOpenDemo, onOpenSampleCert }) {
   return (
     <div className="py-16 bg-white font-sans animate-fade-in">
+      <SEO pageKey="certificates" schema={getBreadcrumbSchema([{ name: 'Certificates', url: '/certificates' }])} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 text-center">
         <span className="bg-[#FFF5F7] text-[#FF1744] border border-[#FF5C7A]/30 text-xs font-heading font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
           Official Credentials

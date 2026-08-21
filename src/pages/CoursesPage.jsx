@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { getCourseSchema, getBreadcrumbSchema } from '../data/schemaData';
 import { 
   Check, 
   ChevronDown, 
@@ -18,6 +20,8 @@ import { TextMaskReveal, FadeUp, StaggerContainer, StaggerItem } from '../compon
 
 export default function CoursesPage({ onOpenDemo }) {
   const [openIdx, setOpenIdx] = useState(null);
+
+  const courseSchemas = [getCourseSchema(), getBreadcrumbSchema([{ name: 'Courses', url: '/courses' }])];
 
   const modules = [
     {
@@ -124,6 +128,7 @@ export default function CoursesPage({ onOpenDemo }) {
 
   return (
     <div className="py-8 sm:py-16 bg-[#FFF5F7] font-sans animate-fade-in">
+      <SEO pageKey="courses" schema={courseSchemas} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

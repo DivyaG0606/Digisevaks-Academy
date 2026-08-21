@@ -1,13 +1,12 @@
 import React from 'react';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../data/schemaData';
 import EnquiryFormSection from '../components/EnquiryFormSection';
 
 export default function EnquiryPage() {
-  React.useEffect(() => {
-    document.title = "Enquiry Form | DIGISEVAKS Academy Admission";
-  }, []);
-
   return (
     <div className="animate-fade-in font-sans bg-white">
+      <SEO pageKey="enquiry" schema={getBreadcrumbSchema([{ name: 'Course Enquiry', url: '/enquiry' }])} />
       <EnquiryFormSection />
     </div>
   );

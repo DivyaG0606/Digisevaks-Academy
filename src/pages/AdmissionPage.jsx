@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../data/schemaData';
 import {
   User, Mail, Phone, GraduationCap, Users, CreditCard, MapPin,
   BookOpen, CheckSquare, ShieldCheck, Sparkles, Send, CheckCircle2, Printer, FileText, ArrowRight
@@ -27,7 +29,6 @@ export default function AdmissionPage() {
   });
 
   useEffect(() => {
-    document.title = "Digital Marketing Admission Form | DIGISEVAKS Academy";
     window.scrollTo(0, 0);
   }, []);
 
@@ -78,6 +79,7 @@ export default function AdmissionPage() {
 
   return (
     <div className="py-8 sm:py-16 bg-gray-50 min-h-screen font-sans animate-fade-in text-[#111111]">
+      <SEO pageKey="admission" schema={getBreadcrumbSchema([{ name: 'Admission', url: '/admission' }])} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Form Header */}

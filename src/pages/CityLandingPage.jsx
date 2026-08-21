@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { getCityPageSeoConfig } from '../config/seoConfig';
+import { getCourseSchema, getFaqSchema, getBreadcrumbSchema } from '../data/schemaData';
 import { 
   Sparkles, CheckCircle2, Phone, Star, ShieldCheck, Award, BookOpen, 
   Video, Users, Laptop, Briefcase, ChevronDown, ChevronUp, MapPin, 
@@ -26,6 +29,7 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
   }
 
   const city = getCityData(extractedSlug);
+  const citySeo = getCityPageSeoConfig(city);
 
   const [activeTab, setActiveTab] = useState('jobseeker');
   const [openModuleId, setOpenModuleId] = useState(1);
@@ -52,9 +56,8 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
   }, [city.reviews]);
 
   useEffect(() => {
-    document.title = `${city.fullTitle} | DIGISEVAKS Academy 100% Practical Training`;
     window.scrollTo(0, 0);
-  }, [location.pathname, extractedSlug, city.fullTitle]);
+  }, [location.pathname, extractedSlug]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -100,8 +103,21 @@ export default function CityLandingPage({ onOpenDemo, locationSlugOverride }) {
     }
   ];
 
+  const citySchemas = [
+    getCourseSchema(),
+    getFaqSchema(faqs),
+    getBreadcrumbSchema([{ name: city.name, url: citySeo.canonical }])
+  ];
+
   return (
     <div className="font-sans bg-white text-[#111111] animate-fade-in">
+      <SEO
+        title={citySeo.title}
+        description={citySeo.description}
+        canonical={citySeo.canonical}
+        keywords={citySeo.keywords}
+        schema={citySchemas}
+      />
       
       {/* ---------------- 1. HERO SECTION (Dark Navy / Purple Banner) ---------------- */}
       <section className="bg-[#111827] text-white pt-8 pb-14 sm:py-16 relative overflow-hidden font-sans">
